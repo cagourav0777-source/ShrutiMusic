@@ -13,7 +13,7 @@ OWNER_USERNAME = os.getenv("OWNER_USERNAME", "WTF_WhyMeeh")
 BOT_USERNAME = os.getenv("BOT_USERNAME", "ShrutixMusicBot")
 
 MONGO_DB_URI = os.getenv("MONGO_DB_URI", None)
-LOG_GROUP_ID = int(os.getenv("LOG_GROUP_ID", None))
+LOG_GROUP_ID = int(os.getenv("LOG_GROUP_ID")) if os.getenv("LOG_GROUP_ID") else None
 HEROKU_APP_NAME = os.getenv("HEROKU_APP_NAME")
 HEROKU_API_KEY = os.getenv("HEROKU_API_KEY")
 
@@ -46,7 +46,7 @@ STRING5 = os.getenv("STRING_SESSION5", None)
 
 AUTO_LEAVING_ASSISTANT = bool(os.getenv("AUTO_LEAVING_ASSISTANT", False))
 
-START_IMG_URL = os.getenv("START_IMG_URL", "https://files.catbox.moe/7q8bfg.jpg")
+START_IMG_URL = os.getenv("START_IMG_URL") or "https://files.catbox.moe/7q8bfg.jpg"
 PING_IMG_URL = "https://files.catbox.moe/eehxb4.jpg"
 PLAYLIST_IMG_URL = "https://files.catbox.moe/eehxb4.jpg"
 STATS_IMG_URL = "https://files.catbox.moe/eehxb4.jpg"
