@@ -68,6 +68,10 @@ confirmer = {}
 
 TEMP_DB_FOLDER = "tempdb"
 
+# Create temp directory if it doesn't exist
+if not os.path.exists(TEMP_DB_FOLDER):
+    os.makedirs(TEMP_DB_FOLDER)
+
 def time_to_seconds(time):
     stringt = str(time)
     return sum(int(x) * 60**i for i, x in enumerate(reversed(stringt.split(":"))))
