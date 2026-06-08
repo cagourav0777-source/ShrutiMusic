@@ -179,6 +179,17 @@ async def welcome(client, message: Message):
                 if message.chat.type != ChatType.SUPERGROUP:
                     await message.reply_text(_["start_4"])
                     return await app.leave_chat(message.chat.id)
+                
+                # Auto-invite assistant to the group
+                try:
+                    from ShrutiMusic import userbot
+                    await app.promote_chat_member(
+                        chat_id=message.chat.id,
+                        user_id=userbot.one.id,
+                        can_manage_voice_chats=True
+                    )
+                except Exception as e:
+                    print(f"Failed to invite assistant: {e}")
                 if message.chat.id in await blacklisted_chats():
                     await message.reply_text(
                         _["start_5"].format(
