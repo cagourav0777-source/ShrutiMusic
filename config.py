@@ -68,9 +68,11 @@ confirmer = {}
 
 TEMP_DB_FOLDER = "tempdb"
 
-# Create temp directory if it doesn't exist
-if not os.path.exists(TEMP_DB_FOLDER):
-    os.makedirs(TEMP_DB_FOLDER)
+# Create necessary directories if they don't exist
+directories = [TEMP_DB_FOLDER, "downloads", "cache"]
+for directory in directories:
+    if not os.path.exists(directory):
+        os.makedirs(directory)
 
 def time_to_seconds(time):
     stringt = str(time)
